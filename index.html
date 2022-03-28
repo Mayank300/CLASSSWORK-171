@@ -1,57 +1,69 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Menu Card</title>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <!-- We import arjs version without NFT but with marker + location based support -->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 
-<head>
-  <title>Menu Card</title>
-  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-  <!-- We import arjs version without NFT but with marker + location based support -->
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <!-- Sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-  <!-- Sweetalert -->
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js"></script>
 
-  <!-- The core Firebase JS SDK is always required and must be listed first 
+    <script type="module">
+      const firebaseConfig = {
+        apiKey: "AIzaSyBuIl72NWzYR255HZaFNmr_tCegx84xwBQ",
+        authDomain: "ar-potato.firebaseapp.com",
+        projectId: "ar-potato",
+        storageBucket: "ar-potato.appspot.com",
+        messagingSenderId: "456329608244",
+        appId: "1:456329608244:web:4034bdb08e537d976e9e61",
+      };
 
+      const app = initializeApp(firebaseConfig);
+    </script>
 
+    <!-- Local StyleSheet -->
+    <link href="./style.css" rel="stylesheet" />
 
+    <!--Js Files-->
+    <script src="./js/handlemarker.js"></script>
+    <script src="./js/addMarkers.js"></script>
+    <script src="./js/addButtons.js"></script>
+  </head>
 
-    REPLACE THE COMMENT WITH FIREBASE DATABASE CONFIG.
-
-
-
-
-
-  -->
- 
-
-  <!-- Local StyleSheet -->
-  <link href="./style.css" rel="stylesheet" />
-
-  <!--Js Files-->
-  <script src="./js/markerHandler.js"></script>
-  <script src="./js/addMarkers.js"></script>
-  <script src="./js/addButtons.js"></script>
-
-</head>
-
-<body style="margin : 0px; overflow: hidden;">
-  <a-scene id="main-scene" vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; 
+  <body style="margin: 0px; overflow: hidden">
+    <a-scene
+      id="main-scene"
+      vr-mode-ui="enabled: false"
+      embedded
+      arjs="sourceType: webcam; 
       sourceWidth:1280; sourceHeight:960; 
       displayWidth: 1280; displayHeight: 960; 
-      debugUIEnabled: false;" gesture-detector create-markers create-buttons>
-    <!-- Camera -->
-    <a-entity camera></a-entity>
+      debugUIEnabled: false;"
+      gesture-detector
+      create-markers
+      create-buttons
+    >
+      <!-- Camera -->
+      <a-entity camera></a-entity>
+    </a-scene>
 
-  </a-scene>
-
-  <div id="button-div" class="fixed-bottom"></div>
-
-</body>
-
+    <div id="button-div" class="fixed-bottom"></div>
+  </body>
 </html>
